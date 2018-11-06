@@ -49,7 +49,7 @@ anim_offset_random = 0.0
 anim_loop = false
 _sections_unfolded = [ "Emission Shape", "Scale" ]
 
-[node name="SwordNote" type="Node2D"]
+[node name="SwordNote" type="Node2D" index="0"]
 
 position = Vector2( 83.5689, 571.595 )
 scale = Vector2( 0.6, 0.6 )
@@ -89,7 +89,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D" index="0"]
 
-position = Vector2( -6.31497, -40.6446 )
+position = Vector2( -5.73225, 16.7565 )
 shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="KinematicBody2D" index="2"]

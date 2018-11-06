@@ -1,31 +1,30 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scipts/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://Scipts/Wall.gd" type="Script" id=2]
 [ext_resource path="res://ArtAssets/TempAssets/SwordOutlines.png" type="Texture" id=3]
-[ext_resource path="res://Scipts/NoteReciever.gd" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 36.0355, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 27.4797, 6.28636 )
+extents = Vector2( 28.5497, 34.0818 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 30.772, 9.81363 )
+extents = Vector2( 25.554, 23.0689 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 
 custom_solver_bias = 0.0
-extents = Vector2( 19.5976, 31.9417 )
+extents = Vector2( 29.4853, 32 )
 
-[node name="Root" type="Node" index="0"]
+[node name="Root" type="Node"]
 
 script = ExtResource( 1 )
 
@@ -71,37 +70,13 @@ position = Vector2( 7.61169, 0.276604 )
 scale = Vector2( 1.63249, 0.581283 )
 texture = ExtResource( 3 )
 
-[node name="Perfect" type="Area2D" parent="VerticalSword" index="1" groups=[
-"reciever",
-"perfect",
-]]
-
-editor/display_folded = true
-scale = Vector2( 1, 1 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 4
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Perfect" index="0"]
-
-position = Vector2( 2.63579, -27.2981 )
-shape = SubResource( 4 )
-
-[node name="Great" type="Area2D" parent="VerticalSword" index="2" groups=[
+[node name="Great" type="Area2D" parent="VerticalSword" index="1" groups=[
 "reciever",
 "great",
 ]]
 
-editor/display_folded = true
-position = Vector2( -1.6586, -27.771 )
-scale = Vector2( 1, 1 )
+position = Vector2( -0.471039, 21.9291 )
+scale = Vector2( 0.911567, 0.282381 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -113,18 +88,39 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="Great" type="CollisionShape2D" parent="VerticalSword/Great" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Great" index="0"]
 
-position = Vector2( -2.59067, 16.7487 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
+
+[node name="Great2" type="Area2D" parent="VerticalSword" index="2" groups=[
+"reciever",
+"great",
+]]
+
+position = Vector2( -1.25732, -7.00791 )
+scale = Vector2( 0.911567, 0.282381 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Great2" index="0"]
+
+shape = SubResource( 2 )
 
 [node name="Good" type="Area2D" parent="VerticalSword" index="3" groups=[
 "reciever",
 "good",
 ]]
 
-position = Vector2( 3.93137, 0.540882 )
-scale = Vector2( 1, 1 )
+position = Vector2( 0, 37.8379 )
+scale = Vector2( 1, 0.333088 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -134,14 +130,58 @@ collision_layer = 4
 collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
-_sections_unfolded = [ "Collision", "Transform" ]
+_sections_unfolded = [ "Audio Bus", "Collision" ]
 
-[node name="Good" type="CollisionShape2D" parent="VerticalSword/Good" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Good" index="0"]
 
-position = Vector2( -4.50578, 16.0613 )
-scale = Vector2( 1.61569, 0.555715 )
-shape = SubResource( 2 )
+position = Vector2( 0, 4.05957 )
+shape = SubResource( 3 )
+
+[node name="Good2" type="Area2D" parent="VerticalSword" index="4" groups=[
+"reciever",
+"good",
+]]
+
+position = Vector2( -1.57256, -25.4448 )
+scale = Vector2( 1, 0.333088 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Good2" index="0"]
+
+position = Vector2( 0, 4.05957 )
+shape = SubResource( 3 )
+
+[node name="Prefect" type="Area2D" parent="VerticalSword" index="5" groups=[
+"reciever",
+"perfect",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 7.30186 )
+scale = Vector2( 1, 0.147896 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Prefect" index="0"]
+
+shape = SubResource( 4 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
