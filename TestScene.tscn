@@ -3,7 +3,7 @@
 [ext_resource path="res://Scipts/TestScene.gd" type="Script" id=1]
 [ext_resource path="res://Scipts/Wall.gd" type="Script" id=2]
 [ext_resource path="res://Scipts/NoteReciever.gd" type="Script" id=3]
-[ext_resource path="res://ArtAssets/icon.png" type="Texture" id=4]
+[ext_resource path="res://ArtAssets/TempAssets/SwordOutlines.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -13,7 +13,7 @@ extents = Vector2( 36.0355, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 35.1924, 33.4326 )
+extents = Vector2( 19.1109, 57.4026 )
 
 [node name="Root" type="Node" index="0"]
 
@@ -50,11 +50,12 @@ wait_time = 1.0
 one_shot = false
 autostart = true
 
-[node name="NoteReciever" type="Area2D" parent="." index="2" groups=[
+[node name="VerticalSword" type="Area2D" parent="." index="2" groups=[
 "reciever",
 ]]
 
-position = Vector2( 102.335, 59.4409 )
+position = Vector2( 88.2877, 67.9771 )
+scale = Vector2( 0.371359, 1.07969 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -67,12 +68,46 @@ audio_bus_name = "Master"
 script = ExtResource( 3 )
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="NoteReciever" index="0"]
+[node name="Sprite" type="Sprite" parent="VerticalSword" index="0"]
 
+position = Vector2( 7.61169, 0.276604 )
+scale = Vector2( 1.63249, 0.581283 )
 texture = ExtResource( 4 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="NoteReciever" index="1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword" index="1"]
 
+position = Vector2( -0.3396, 0.439877 )
+scale = Vector2( 1.61569, 0.555715 )
+shape = SubResource( 2 )
+
+[node name="HorizontalSword" type="Area2D" parent="." index="3" groups=[
+"reciever",
+]]
+
+position = Vector2( 159.081, 94.0151 )
+rotation = 1.5708
+scale = Vector2( 0.6, 0.6 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="Sprite" type="Sprite" parent="HorizontalSword" index="0"]
+
+position = Vector2( 0.520004, 2.30043 )
+scale = Vector2( 1.0104, 1.04601 )
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HorizontalSword" index="1"]
+
+position = Vector2( -4.40128, 3.08089 )
 shape = SubResource( 2 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

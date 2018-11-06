@@ -2,9 +2,17 @@ extends Node2D
 
 var isInArea = false
 var recieverId = 1 setget setId
+var localRotation = 0 setget setRotation
+
 signal noteIn(id,score)
 func setId(newId):
 	recieverId = newId
+
+func setRotation(angle):
+	localRotation = (angle * PI )/180
+	rotate(localRotation)
+
+
 func _ready():
 	get_node("KinematicBody2D/Area2D").connect("area_entered",self,"handleCollisionEnter")
 	get_node("KinematicBody2D/Area2D").connect("area_exited",self,"handleCollisionExit")
@@ -23,5 +31,5 @@ func handleCollisionExit(otherArea):
 		
 func _process(delta):
 	if Input.is_action_pressed("ui_right") and isInArea:
-		emit_signal("noteIn",recieverId,score)
+		emit_signal("noteIn",recieverId,1)
 
