@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var speed = 200 setget setSpeed, getSpeed
+export (int) var speed = 10 setget setSpeed, getSpeed
 var velocity = Vector2()
 
 func setSpeed(val):

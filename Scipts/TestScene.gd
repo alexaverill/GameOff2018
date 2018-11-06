@@ -4,33 +4,36 @@ extends Node
 # var a = 2
 # var b = "textvar"
 var note = preload("res://SwordNote.tscn")
-var verticalSwordRecieverX
-var horizontalSwordRecieverX
+var verticalSwordRecieverPos
+var horizontalSwordRecieverPos
 var noteNode
+var yDist = 500
 func _ready():
-	horizontalSwordRecieverX = get_node("HorizontalSword").position.x
-	print(horizontalSwordRecieverX)
-	verticalSwordRecieverX = get_node("VerticalSword").position.x 
+	#horizontalSwordRecieverPos= get_node("HorizontalSword").position
+	verticalSwordRecieverPos = get_node("VerticalSword").position
 
 func instantiateVerticalSword():
 	noteNode = note.instance()
-	noteNode.position.x = verticalSwordRecieverX + 2.8
+	noteNode.position.x = verticalSwordRecieverPos.x + 2.8
+	noteNode.position.y = verticalSwordRecieverPos.y + yDist
 	add_child(noteNode)
 	noteNode.connect("noteIn",self,"handleNoteSignal")
 	pass
 func instantiateHorizontalSword():
 	noteNode = note.instance()
 	noteNode.setRotation(90)
-	noteNode.position.x = horizontalSwordRecieverX 
+	noteNode.position.x = horizontalSwordRecieverPos.x
+	noteNode.position.y = horizontalSwordRecieverPos.y + yDist 
 	add_child(noteNode)
 	noteNode.connect("noteIn",self,"handleNoteSignal")
 	pass
 
 func instantiateNote():
 	instantiateVerticalSword()
-	instantiateHorizontalSword()
+	#instantiateHorizontalSword()
 	pass
 func handleNoteSignal(id,score):
-	print(id)
+	print(score)
+	pass
 func _on_Timer_timeout():
 	instantiateNote()

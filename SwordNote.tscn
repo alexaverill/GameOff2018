@@ -8,7 +8,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 14.3654, 50.2656 )
+extents = Vector2( 18.1453, 8.21686 )
 
 [sub_resource type="ParticlesMaterial" id=2]
 
@@ -64,7 +64,7 @@ collision_mask = 6
 collision/safe_margin = 0.08
 script = ExtResource( 2 )
 _sections_unfolded = [ "Collision" ]
-speed = 200
+speed = 10
 
 [node name="Sprite" type="Sprite" parent="KinematicBody2D" index="0"]
 
@@ -89,7 +89,7 @@ _sections_unfolded = [ "Audio Bus", "Collision", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D/Area2D" index="0"]
 
-position = Vector2( -8.09473, 0.85675 )
+position = Vector2( -6.31497, -40.6446 )
 shape = SubResource( 1 )
 
 [node name="Particles2D" type="Particles2D" parent="KinematicBody2D" index="2"]
