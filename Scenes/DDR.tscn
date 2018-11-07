@@ -12,12 +12,12 @@ extents = Vector2( 36.0355, 10 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 28.5497, 34.0818 )
+extents = Vector2( 25.554, 23.0689 )
 
 [sub_resource type="RectangleShape2D" id=3]
 
 custom_solver_bias = 0.0
-extents = Vector2( 25.554, 23.0689 )
+extents = Vector2( 28.5497, 34.0818 )
 
 [sub_resource type="RectangleShape2D" id=4]
 
@@ -59,66 +59,24 @@ wait_time = 5.0
 one_shot = false
 autostart = true
 
-[node name="VerticalSword" type="Node2D" parent="." index="2"]
+[node name="VerticalReciever" type="Node2D" parent="." index="2"]
 
+editor/display_folded = true
 position = Vector2( 88.2877, 67.9771 )
 scale = Vector2( 0.371359, 1.07969 )
 
-[node name="Sprite" type="Sprite" parent="VerticalSword" index="0"]
+[node name="Sprite" type="Sprite" parent="VerticalReciever" index="0"]
 
 position = Vector2( 7.61169, 0.276604 )
 scale = Vector2( 1.63249, 0.581283 )
 texture = ExtResource( 3 )
 
-[node name="Great" type="Area2D" parent="VerticalSword" index="1" groups=[
-"reciever",
-"great",
-]]
-
-position = Vector2( -0.471039, 21.9291 )
-scale = Vector2( 0.911567, 0.282381 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 4
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Great" index="0"]
-
-shape = SubResource( 2 )
-
-[node name="Great2" type="Area2D" parent="VerticalSword" index="2" groups=[
-"reciever",
-"great",
-]]
-
-position = Vector2( -1.25732, -7.00791 )
-scale = Vector2( 0.911567, 0.282381 )
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-collision_layer = 4
-collision_mask = 4
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Great2" index="0"]
-
-shape = SubResource( 2 )
-
-[node name="Good" type="Area2D" parent="VerticalSword" index="3" groups=[
-"reciever",
+[node name="Good" type="Area2D" parent="VerticalReciever" index="1" groups=[
 "good",
+"reciever",
 ]]
 
+editor/display_folded = true
 position = Vector2( 0, 37.8379 )
 scale = Vector2( 1, 0.333088 )
 input_pickable = true
@@ -132,18 +90,19 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Audio Bus", "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Good" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalReciever/Good" index="0"]
 
 position = Vector2( 0, 4.05957 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="Good2" type="Area2D" parent="VerticalSword" index="4" groups=[
+[node name="Great" type="Area2D" parent="VerticalReciever" index="2" groups=[
+"great",
 "reciever",
-"good",
 ]]
 
-position = Vector2( -1.57256, -25.4448 )
-scale = Vector2( 1, 0.333088 )
+editor/display_folded = true
+position = Vector2( -0.471039, 21.9291 )
+scale = Vector2( 0.911567, 0.282381 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -153,16 +112,15 @@ collision_layer = 4
 collision_mask = 4
 audio_bus_override = false
 audio_bus_name = "Master"
-_sections_unfolded = [ "Audio Bus", "Collision" ]
+_sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Good2" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalReciever/Great" index="0"]
 
-position = Vector2( 0, 4.05957 )
 shape = SubResource( 3 )
 
-[node name="Prefect" type="Area2D" parent="VerticalSword" index="5" groups=[
-"reciever",
+[node name="Prefect" type="Area2D" parent="VerticalReciever" index="3" groups=[
 "perfect",
+"reciever",
 ]]
 
 editor/display_folded = true
@@ -179,9 +137,56 @@ audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalSword/Prefect" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalReciever/Prefect" index="0"]
 
 shape = SubResource( 4 )
+
+[node name="Great2" type="Area2D" parent="VerticalReciever" index="4" groups=[
+"great",
+"reciever",
+]]
+
+editor/display_folded = true
+position = Vector2( -1.25732, -7.00791 )
+scale = Vector2( 0.911567, 0.282381 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalReciever/Great2" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="Good2" type="Area2D" parent="VerticalReciever" index="5" groups=[
+"good",
+"reciever",
+]]
+
+editor/display_folded = true
+position = Vector2( -1.57256, -25.4448 )
+scale = Vector2( 1, 0.333088 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VerticalReciever/Good2" index="0"]
+
+position = Vector2( 0, 4.05957 )
+shape = SubResource( 2 )
 
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 

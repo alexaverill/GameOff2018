@@ -3,14 +3,14 @@ extends Node
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"
-var note = preload("res://SwordNote.tscn")
+var note = preload("res://Scenes/SwordNote.tscn")
 var verticalSwordRecieverPos
 var horizontalSwordRecieverPos
 var noteNode
 var yDist = 500
 func _ready():
 	#horizontalSwordRecieverPos= get_node("HorizontalSword").position
-	verticalSwordRecieverPos = get_node("VerticalSword").position
+	verticalSwordRecieverPos = get_node("VerticalReciever").position
 
 func instantiateVerticalSword():
 	noteNode = note.instance()

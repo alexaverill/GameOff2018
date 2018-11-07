@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/groundChunk.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D" index="0"]
+
+position = Vector2( 33.713, 567.518 )
+
+[node name="groundChunk" parent="." index="0" instance=ExtResource( 1 )]
+
+position = Vector2( -55.7625, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="groundChunk2" parent="." index="1" instance=ExtResource( 1 )]
+
+position = Vector2( 134.872, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="groundChunk3" parent="." index="2" instance=ExtResource( 1 )]
+
+position = Vector2( 323.237, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="groundChunk4" parent="." index="3" instance=ExtResource( 1 )]
+
+position = Vector2( 513.69, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="groundChunk5" parent="." index="4" instance=ExtResource( 1 )]
+
+position = Vector2( 703.49, 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="groundChunk6" parent="." index="5" instance=ExtResource( 1 )]
+
+position = Vector2( 892.092, 2 )
+_sections_unfolded = [ "Transform" ]
+
+

@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://ArtAssets/TempAssets/groundSprite.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32.2043, 27.6865 )
+
+[node name="ground" type="Node2D"]
+
+position = Vector2( 32.4737, 568.001 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( -0.00509262, -0.134949 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Region" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+
+position = Vector2( 0.174828, 3.49652 )
+shape = SubResource( 1 )
+
+
