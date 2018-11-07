@@ -4,13 +4,26 @@ extends Node
 # var a = 2
 # var b = "textvar"
 var note = preload("res://Scenes/SwordNote.tscn")
+var timer
 var verticalSwordRecieverPos
 var horizontalSwordRecieverPos
-var noteNode
+var noteNode = []
+var noteList = []
+var noteTimingList = []
+
 var yDist = 500
+
 func _ready():
 	#horizontalSwordRecieverPos= get_node("HorizontalSword").position
 	verticalSwordRecieverPos = get_node("VerticalReciever").position
+	timer = get_node("Timer");
+	for x in range(0,5):
+		var tmpNode = note.instance();
+		tmpNode.position.x = verticalSwordRecieverPos.x + 2.8
+		tmpNode.position.y = verticalSwordRecieverPos.y + yDist
+		noteList.push_back(tmpNode)
+		noteTimingList.push_back(randi()%6+1);
+	
 
 func instantiateVerticalSword():
 	noteNode = note.instance()
@@ -29,11 +42,18 @@ func instantiateHorizontalSword():
 	pass
 
 func instantiateNote():
-	instantiateVerticalSword()
+	var tmpNote = noteList.pop_front()
+	add_child(tmpNote)
+	tmpNote.connect("noteIn",self,"handleNoteSignal")	
+	#instantiateVerticalSword()
 	#instantiateHorizontalSword()
 	pass
 func handleNoteSignal(id,score):
 	print(score)
 	pass
 func _on_Timer_timeout():
+	if noteTimingList.count()>0:
+		timer.wait_time = noteTimingList.pop_front()
+	else:
+		timer.stop()
 	instantiateNote()
