@@ -1,0 +1,144 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ArtAssets/TempAssets/SwordOutlines.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 25.554, 23.0689 )
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 28.5497, 34.0818 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 29.4853, 32 )
+
+[node name="VerticalReciever" type="Node2D"]
+
+position = Vector2( 88.2877, 67.9771 )
+scale = Vector2( 0.371359, 1.07969 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 7.61169, 0.276604 )
+scale = Vector2( 1.63249, 0.581283 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Good" type="Area2D" parent="." index="1" groups=[
+"good",
+]]
+
+position = Vector2( 0, 37.8379 )
+scale = Vector2( 1, 0.333088 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good" index="0"]
+
+position = Vector2( 0, 4.05957 )
+shape = SubResource( 1 )
+
+[node name="Great" type="Area2D" parent="." index="2" groups=[
+"great",
+]]
+
+editor/display_folded = true
+position = Vector2( -0.471039, 21.9291 )
+scale = Vector2( 0.911567, 0.282381 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Great" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Prefect" type="Area2D" parent="." index="3" groups=[
+"perfect",
+]]
+
+editor/display_folded = true
+position = Vector2( 0, 7.30186 )
+scale = Vector2( 1, 0.147896 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prefect" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="Great2" type="Area2D" parent="." index="4" groups=[
+"great",
+]]
+
+editor/display_folded = true
+position = Vector2( -1.25732, -7.00791 )
+scale = Vector2( 0.911567, 0.282381 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Great2" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Good2" type="Area2D" parent="." index="5" groups=[
+"good",
+]]
+
+editor/display_folded = true
+position = Vector2( -1.57256, -25.4448 )
+scale = Vector2( 1, 0.333088 )
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+collision_layer = 4
+collision_mask = 4
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Audio Bus", "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Good2" index="0"]
+
+position = Vector2( 0, 4.05957 )
+shape = SubResource( 1 )
+
+
