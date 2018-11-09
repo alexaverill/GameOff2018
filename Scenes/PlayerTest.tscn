@@ -1,44 +1,56 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/GameController.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=4]
+[ext_resource path="res://ArtAssets/TempAssets/Sign.png" type="Texture" id=5]
+[ext_resource path="res://UIStyles/UITHeme.tres" type="Theme" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.68045, 20.127 )
 
-[node name="Root" type="Node2D"]
+[sub_resource type="RectangleShape2D" id=2]
 
-[node name="Ground" parent="." index="0" instance=ExtResource( 1 )]
+custom_solver_bias = 0.0
+extents = Vector2( 46.1399, 47.3777 )
+
+[node name="Root" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Ground" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( 33.713, 567 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ground2" parent="." index="1" instance=ExtResource( 1 )]
+[node name="Ground2" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( -1104, 567 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Ground3" parent="." index="2" instance=ExtResource( 1 )]
+[node name="Ground3" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 1172.17, 567 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 2 )]
+[node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 3 )]
 
-_sections_unfolded = [ "Collision", "collision" ]
+position = Vector2( 40, 463.226 )
+_sections_unfolded = [ "Collision", "Transform", "collision" ]
 run_speed = 300
 gravity = 400
 
 [node name="Enemy" type="Node2D" parent="." index="4"]
 
+editor/display_folded = true
 position = Vector2( 947.181, 520.416 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Area2D" type="Area2D" parent="Enemy" index="1"]
 
@@ -55,5 +67,122 @@ audio_bus_name = "Master"
 position = Vector2( -0.634945, -4.76837e-07 )
 scale = Vector2( 8.66954, 1 )
 shape = SubResource( 1 )
+
+[node name="Sign" type="Node2D" parent="." index="5" groups=[
+"ui",
+]]
+
+editor/display_folded = true
+position = Vector2( 1495.88, 509.894 )
+
+[node name="Sprite" type="Sprite" parent="Sign" index="0"]
+
+texture = ExtResource( 5 )
+
+[node name="Area2D" type="Area2D" parent="Sign" index="1" groups=[
+"ui",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/Area2D" index="0"]
+
+position = Vector2( -3.24194, -13.509 )
+shape = SubResource( 2 )
+
+[node name="Popup" type="Popup" parent="." index="6"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 91.0
+margin_top = 142.0
+margin_right = 535.0
+margin_bottom = 379.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 6 )
+popup_exclusive = false
+_sections_unfolded = [ "Theme" ]
+
+[node name="Panel" type="Panel" parent="Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 444.0
+margin_bottom = 235.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="Button" type="Button" parent="Popup" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 170.0
+margin_top = 212.0
+margin_right = 297.0
+margin_bottom = 232.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Ok"
+flat = false
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 29.0
+margin_top = 14.0
+margin_right = 432.0
+margin_bottom = 199.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in elit aliquet, molestie leo et, pretium dui. Nulla nec massa placerat, aliquam ante porttitor, rhoncus arcu. Fusce nibh velit, pretium non lobortis at, efficitur tincidunt justo. Nunc quis enim dapibus, ultricies odio ac, rutrum mauris. Integer molestie tortor non ex iaculis, ut tincidunt nisl sagittis. Suspendisse auctor fermentum magna, in convallis enim porta ac. Maecenas id magna scelerisque nisl tristique venenatis. Sed metus odio, pharetra eu dictum sed, efficitur vitae neque. Maecenas accumsan hendrerit ligula ac venenatis. Nulla semper eget ipsum vitae blandit. Morbi a ligula ut libero scelerisque fringilla. Nam porta dui ut risus pellentesque rhoncus. Curabitur faucibus vulputate mauris ut malesuada. Aliquam erat volutpat. "
+scroll_active = true
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
 
 
