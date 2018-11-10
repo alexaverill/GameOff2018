@@ -1,12 +1,26 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=4 format=2]
 
-[ext_resource path="res://UIStyles/PanelStyle.tres" type="StyleBox" id=1]
+[ext_resource path="res://UIStyles/buttonHover.tres" type="StyleBox" id=1]
+[ext_resource path="res://UIStyles/new_styleboxflat.tres" type="StyleBox" id=2]
+[ext_resource path="res://UIStyles/PanelStyle.tres" type="StyleBox" id=3]
 
 [resource]
 
-Panel/styles/panel = ExtResource( 1 )
-Panel/styles/panelf = null
-Panel/styles/panelnc = null
+Button/colors/font_color = Color( 0.757812, 0.757812, 0.757812, 1 )
+Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
+Button/colors/font_color_hover = Color( 0.941176, 0.941176, 0.941176, 1 )
+Button/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+Button/constants/hseparation = 2
+Button/fonts/font = null
+Button/styles/disabled = null
+Button/styles/focus = null
+Button/styles/hover = ExtResource( 1 )
+Button/styles/normal = ExtResource( 2 )
+Button/styles/pressed = ExtResource( 1 )
+ButtonGroup/styles/panel = ExtResource( 2 )
+Panel/styles/panel = ExtResource( 3 )
+Panel/styles/panelf = ExtResource( 3 )
+Panel/styles/panelnc = ExtResource( 3 )
 RichTextLabel/colors/default_color = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/font_color_selected = Color( 0, 0, 0, 1 )
 RichTextLabel/colors/selection_color = Color( 0.1, 0.1, 1, 0.8 )
@@ -20,5 +34,14 @@ RichTextLabel/fonts/mono_font = null
 RichTextLabel/fonts/normal_font = null
 RichTextLabel/styles/focus = null
 RichTextLabel/styles/normal = null
-_sections_unfolded = [ "Panel/styles", "Resource", "RichTextLabel", "RichTextLabel/colors" ]
+VScrollBar/icons/decrement = null
+VScrollBar/icons/decrement_highlight = null
+VScrollBar/icons/increment = null
+VScrollBar/icons/increment_highlight = null
+VScrollBar/styles/grabber = null
+VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_pressed = null
+VScrollBar/styles/scroll = null
+VScrollBar/styles/scroll_focus = null
+_sections_unfolded = [ "Button", "Button/colors", "Button/constants", "Button/styles", "ButtonGroup", "ButtonGroup/styles", "Panel/styles", "Resource", "RichTextLabel/colors", "VScrollBar/styles" ]
 

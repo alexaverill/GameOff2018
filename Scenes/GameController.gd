@@ -5,7 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	get_node("Popup").popup_centered()
+	#get_node("Popup").popup_centered()
 	pass
 
 #func _process(delta):
