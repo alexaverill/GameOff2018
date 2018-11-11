@@ -1,6 +1,6 @@
 [gd_scene load_steps=28 format=2]
 
-[ext_resource path="res://Scipts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/PlayerNonControllable.gd" type="Script" id=1]
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle1.png" type="Texture" id=2]
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle2.png" type="Texture" id=3]
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle3.png" type="Texture" id=4]
@@ -13,16 +13,16 @@
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle10.png" type="Texture" id=11]
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle11.png" type="Texture" id=12]
 [ext_resource path="res://ArtAssets/CharSprite/idle/idle12.png" type="Texture" id=13]
-[ext_resource path="res://ArtAssets/CharSprite/jump outline.png" type="Texture" id=14]
-[ext_resource path="res://ArtAssets/CharSprite/landing outline.png" type="Texture" id=15]
-[ext_resource path="res://ArtAssets/CharSprite/running/run1.png" type="Texture" id=16]
-[ext_resource path="res://ArtAssets/CharSprite/running/run2.png" type="Texture" id=17]
-[ext_resource path="res://ArtAssets/CharSprite/running/run3.png" type="Texture" id=18]
-[ext_resource path="res://ArtAssets/CharSprite/running/run4.png" type="Texture" id=19]
-[ext_resource path="res://ArtAssets/CharSprite/running/run5.png" type="Texture" id=20]
-[ext_resource path="res://ArtAssets/CharSprite/running/run6.png" type="Texture" id=21]
-[ext_resource path="res://ArtAssets/CharSprite/running/run7.png" type="Texture" id=22]
-[ext_resource path="res://ArtAssets/CharSprite/running/run8.png" type="Texture" id=23]
+[ext_resource path="res://ArtAssets/CharSprite/running/run1.png" type="Texture" id=14]
+[ext_resource path="res://ArtAssets/CharSprite/running/run2.png" type="Texture" id=15]
+[ext_resource path="res://ArtAssets/CharSprite/running/run3.png" type="Texture" id=16]
+[ext_resource path="res://ArtAssets/CharSprite/running/run4.png" type="Texture" id=17]
+[ext_resource path="res://ArtAssets/CharSprite/running/run5.png" type="Texture" id=18]
+[ext_resource path="res://ArtAssets/CharSprite/running/run6.png" type="Texture" id=19]
+[ext_resource path="res://ArtAssets/CharSprite/running/run7.png" type="Texture" id=20]
+[ext_resource path="res://ArtAssets/CharSprite/running/run8.png" type="Texture" id=21]
+[ext_resource path="res://ArtAssets/CharSprite/jump outline.png" type="Texture" id=22]
+[ext_resource path="res://ArtAssets/CharSprite/landing outline.png" type="Texture" id=23]
 [ext_resource path="res://ArtAssets/TempAssets/player.png" type="Texture" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -38,15 +38,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": true,
-"name": "jumping",
-"speed": 1.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ) ],
+"frames": [ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ) ],
 "loop": true,
 "name": "running",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 1.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -55,7 +55,7 @@ _sections_unfolded = [ "Resource" ]
 custom_solver_bias = 0.0
 extents = Vector2( 25.3577, 29.2819 )
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 position = Vector2( 52.8685, 463.226 )
 input_pickable = false
@@ -85,35 +85,9 @@ animation = "jumping"
 visible = false
 texture = ExtResource( 24 )
 
-[node name="Camera2D" type="Camera2D" parent="." index="3"]
+[node name="Area2D" type="Area2D" parent="." index="3"]
 
-position = Vector2( 2.51782, -165.596 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit_left = -10000000
-limit_top = -10000000
-limit_right = 10000000
-limit_bottom = 10000000
-limit_smoothed = false
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-smoothing_enabled = false
-smoothing_speed = 5.0
-offset_v = 0.0
-offset_h = 0.0
-drag_margin_left = 0.4
-drag_margin_top = 1.0
-drag_margin_right = 0.3
-drag_margin_bottom = 0.2
-editor_draw_screen = true
-editor_draw_limits = true
-editor_draw_drag_margin = true
-_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Offset", "Smoothing", "Transform" ]
-
-[node name="Area2D" type="Area2D" parent="." index="4"]
-
+editor/display_folded = true
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -127,5 +101,12 @@ _sections_unfolded = [ "Collision" ]
 
 position = Vector2( 1.19165, 5.16382 )
 shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="." index="4"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = false
+autostart = false
 
 

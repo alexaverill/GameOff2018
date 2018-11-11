@@ -2,9 +2,9 @@
 
 [ext_resource path="res://Scenes/groundNode.tscn" type="PackedScene" id=1]
 
-[node name="groundChunk" type="Node2D" index="0"]
+[node name="groundChunk" type="Node2D"]
 
-position = Vector2( 35.258, 570.119 )
+position = Vector2( 38.5984, 444.855 )
 
 [node name="ground" parent="." index="0" instance=ExtResource( 1 )]
 

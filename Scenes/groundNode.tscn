@@ -1,15 +1,17 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://ArtAssets/groundSprite.png" type="Texture" id=1]
+[ext_resource path="res://ArtAssets/DirtBlock.png" type="Texture" id=2]
+[ext_resource path="res://ArtAssets/DirtWithStone.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 32.2043, 27.6865 )
 
-[node name="ground" type="Node2D" index="0"]
+[node name="ground" type="Node2D"]
 
-position = Vector2( 32.4737, 568.001 )
+position = Vector2( 32.4737, 443.035 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
@@ -31,5 +33,15 @@ bounce = 0.0
 
 position = Vector2( 0.174828, 3.49652 )
 shape = SubResource( 1 )
+
+[node name="Sprite2" type="Sprite" parent="." index="2"]
+
+position = Vector2( -7.62939e-06, 63.0775 )
+texture = ExtResource( 2 )
+
+[node name="Sprite3" type="Sprite" parent="." index="3"]
+
+position = Vector2( -7.62939e-06, 124.545 )
+texture = ExtResource( 3 )
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/GameController.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=8]
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-huge.png" type="Texture" id=9]
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-big3.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/GroundPlatform.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -18,34 +19,36 @@ extents = Vector2( 2.68045, 20.127 )
 
 [node name="Root" type="Node2D"]
 
+position = Vector2( -10.5513, 34.6686 )
 script = ExtResource( 1 )
 
 [node name="Ground" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 33.713, 567 )
+position = Vector2( 18.9081, 472.619 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Ground2" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( -1104, 567 )
+position = Vector2( -1118.8, 472.619 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Ground3" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 1172.17, 567 )
+position = Vector2( 1800.26, 472 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 40, 463.226 )
+position = Vector2( 24.9463, 419.999 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 run_speed = 300
+jump_speed = -300
 gravity = 400
 
 [node name="Enemy" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
-position = Vector2( 947.181, 520.416 )
+position = Vector2( 927.181, 428.417 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
@@ -68,6 +71,8 @@ scale = Vector2( 8.66954, 1 )
 shape = SubResource( 1 )
 
 [node name="Sign" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 431.404, 417.439 )
 
 [node name="Clouds" type="Node2D" parent="." index="6"]
 
@@ -181,5 +186,9 @@ texture = ExtResource( 10 )
 
 position = Vector2( 35.5972, 20.0137 )
 texture = ExtResource( 7 )
+
+[node name="Node2D" parent="." index="8" instance=ExtResource( 11 )]
+
+position = Vector2( 1288.97, -95.6655 )
 
 

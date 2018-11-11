@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/TitleScene.gd" type="Script" id=1]
 [ext_resource path="res://fonts/TitleFont.tres" type="DynamicFont" id=2]
@@ -9,13 +9,14 @@
 [ext_resource path="res://UIStyles/MainBtnPrimary/MainScrenePrimaryBtn_Hover.tres" type="StyleBox" id=7]
 [ext_resource path="res://UIStyles/MainBtnPrimary/MainScrenePrimaryBtn_Pressed.tres" type="StyleBox" id=8]
 [ext_resource path="res://UIStyles/MainBtnPrimary/MainScrenePrimaryBtn.tres" type="StyleBox" id=9]
-[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=10]
-[ext_resource path="res://UIStyles/SkyPanel.tres" type="StyleBox" id=11]
-[ext_resource path="res://fonts/CreditTitle.tres" type="DynamicFont" id=12]
-[ext_resource path="res://fonts/CreditSubTitle.tres" type="DynamicFont" id=13]
-[ext_resource path="res://fonts/CreditTextFont.tres" type="DynamicFont" id=14]
+[ext_resource path="res://UIStyles/SkyPanel.tres" type="StyleBox" id=10]
+[ext_resource path="res://fonts/CreditTitle.tres" type="DynamicFont" id=11]
+[ext_resource path="res://fonts/CreditSubTitle.tres" type="DynamicFont" id=12]
+[ext_resource path="res://fonts/CreditTextFont.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/Player_nonControllable.tscn" type="PackedScene" id=15]
 
-[node name="Node2D" type="Node2D" index="0"]
+[node name="Node2D" type="Node2D"]
 
 position = Vector2( 29.9999, 32.7277 )
 script = ExtResource( 1 )
@@ -104,16 +105,7 @@ flat = false
 align = 1
 _sections_unfolded = [ "custom_fonts", "custom_styles" ]
 
-[node name="Node2D2" type="Node2D" parent="." index="4"]
-
-editor/display_folded = true
-position = Vector2( -10.3868, 535.004 )
-
-[node name="Ground" parent="Node2D2" index="0" instance=ExtResource( 10 )]
-
-position = Vector2( 0, 0 )
-
-[node name="AboutScreen" type="Node2D" parent="." index="5"]
+[node name="AboutScreen" type="Node2D" parent="." index="4"]
 
 editor/display_folded = true
 visible = false
@@ -135,9 +127,9 @@ mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-custom_styles/panelf = ExtResource( 11 )
-custom_styles/panel = ExtResource( 11 )
-custom_styles/panelnc = ExtResource( 11 )
+custom_styles/panelf = ExtResource( 10 )
+custom_styles/panel = ExtResource( 10 )
+custom_styles/panelnc = ExtResource( 10 )
 _sections_unfolded = [ "Theme", "custom_styles" ]
 
 [node name="BackBtn" type="Button" parent="AboutScreen" index="1"]
@@ -186,7 +178,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 11 )
 text = "Credits"
 percent_visible = 1.0
 lines_skipped = 0
@@ -209,7 +201,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 12 )
 text = "Assets"
 percent_visible = 1.0
 lines_skipped = 0
@@ -249,7 +241,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Created By:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -272,7 +264,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Alex and Hannah"
 percent_visible = 1.0
 lines_skipped = 0
@@ -312,7 +304,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Art and Programming:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -335,7 +327,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Alex "
 percent_visible = 1.0
 lines_skipped = 0
@@ -375,7 +367,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Music:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -398,7 +390,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Hannah"
 percent_visible = 1.0
 lines_skipped = 0
@@ -439,7 +431,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Character Asset By:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -462,7 +454,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "https://jesse-m.itch.io/jungle-pack"
 percent_visible = 1.0
 lines_skipped = 0
@@ -502,7 +494,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "Fonts:"
 percent_visible = 1.0
 lines_skipped = 0
@@ -525,11 +517,26 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = ExtResource( 14 )
+custom_fonts/font = ExtResource( 13 )
 text = "BigFish"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 _sections_unfolded = [ "custom_fonts" ]
+
+[node name="AnimatedPlayerStuff" type="Node2D" parent="." index="5"]
+
+[node name="Ground" type="Node2D" parent="AnimatedPlayerStuff" index="0"]
+
+editor/display_folded = true
+position = Vector2( -14.4879, 457.084 )
+
+[node name="Ground" parent="AnimatedPlayerStuff/Ground" index="0" instance=ExtResource( 14 )]
+
+position = Vector2( 0, 0 )
+
+[node name="KinematicBody2D" parent="AnimatedPlayerStuff" index="1" instance=ExtResource( 15 )]
+
+position = Vector2( 466.6, 397.583 )
 
 
