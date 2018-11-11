@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/trailParticle.png-1e8b42a15602664b83ec993e8c000c7a.stex"
+path="res://.import/swordIcon.png-5202cfb3aa8e3c39acdaefc4b6cb1f04.stex"
 
 [deps]
 
-source_file="res://ArtAssets/TempAssets/trailParticle.png"
-dest_files=[ "res://.import/trailParticle.png-1e8b42a15602664b83ec993e8c000c7a.stex" ]
+source_file="res://ArtAssets/swordIcon.png"
+dest_files=[ "res://.import/swordIcon.png-5202cfb3aa8e3c39acdaefc4b6cb1f04.stex" ]
 
 [params]
 
