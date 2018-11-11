@@ -5,15 +5,15 @@
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Sign.gd" type="Script" id=5]
-[ext_resource path="res://ArtAssets/Sign.png" type="Texture" id=6]
-[ext_resource path="res://ArtAssets/NotificationArrow.png" type="Texture" id=7]
-[ext_resource path="res://ArtAssets/UINotification/frame1.png" type="Texture" id=8]
-[ext_resource path="res://ArtAssets/UINotification/frame2.png" type="Texture" id=9]
-[ext_resource path="res://ArtAssets/UINotification/frame3.png" type="Texture" id=10]
-[ext_resource path="res://ArtAssets/UINotification/frame4.png" type="Texture" id=11]
-[ext_resource path="res://ArtAssets/UINotification/frame5.png" type="Texture" id=12]
-[ext_resource path="res://ArtAssets/UINotification/frame6.png" type="Texture" id=13]
-[ext_resource path="res://UIStyles/UITHeme.tres" type="Theme" id=14]
+[ext_resource path="res://UIStyles/UITHeme.tres" type="Theme" id=6]
+[ext_resource path="res://ArtAssets/Sign.png" type="Texture" id=7]
+[ext_resource path="res://ArtAssets/NotificationArrow.png" type="Texture" id=8]
+[ext_resource path="res://ArtAssets/UINotification/frame1.png" type="Texture" id=9]
+[ext_resource path="res://ArtAssets/UINotification/frame2.png" type="Texture" id=10]
+[ext_resource path="res://ArtAssets/UINotification/frame3.png" type="Texture" id=11]
+[ext_resource path="res://ArtAssets/UINotification/frame4.png" type="Texture" id=12]
+[ext_resource path="res://ArtAssets/UINotification/frame5.png" type="Texture" id=13]
+[ext_resource path="res://ArtAssets/UINotification/frame6.png" type="Texture" id=14]
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-big2.png" type="Texture" id=15]
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-small3.png" type="Texture" id=16]
 [ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=17]
@@ -33,7 +33,7 @@ extents = Vector2( 72.2429, 89.1779 )
 [sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
-"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 6.0
@@ -94,66 +94,31 @@ shape = SubResource( 1 )
 "ui",
 ]]
 
-position = Vector2( -92.2719, 710.485 )
+position = Vector2( 435.502, 509.31 )
 script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
 
-[node name="Sprite" type="Sprite" parent="Sign" index="0"]
+[node name="Popup" type="Popup" parent="Sign" index="0"]
 
-position = Vector2( 0, 1.74344 )
-texture = ExtResource( 6 )
-normal_map = ExtResource( 6 )
-
-[node name="Area2D" type="Area2D" parent="Sign" index="1" groups=[
-"ui",
-]]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/Area2D" index="0"]
-
-position = Vector2( -13.4485, -1.9502 )
-scale = Vector2( 1.36335, 1 )
-shape = SubResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Sign" index="2"]
-
-position = Vector2( -4.56921, -24.6967 )
-scale = Vector2( 1.53518, 1.48999 )
-frames = SubResource( 3 )
-animation = "default"
-frame = 4
-playing = true
-
-[node name="Popup" type="Popup" parent="." index="6"]
-
-editor/display_folded = true
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 91.0
-margin_top = 142.0
-margin_right = 535.0
-margin_bottom = 379.0
+margin_left = -236.0
+margin_top = -327.0
+margin_right = 208.0
+margin_bottom = -90.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 0
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-theme = ExtResource( 14 )
+theme = ExtResource( 6 )
 popup_exclusive = false
-_sections_unfolded = [ "Theme" ]
+_sections_unfolded = [ "Rect", "Theme" ]
 
-[node name="Panel" type="Panel" parent="Popup" index="0"]
+[node name="Panel" type="Panel" parent="Sign/Popup" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -169,7 +134,7 @@ size_flags_horizontal = 1
 size_flags_vertical = 1
 _sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
 
-[node name="Button" type="Button" parent="Popup" index="1"]
+[node name="Button" type="Button" parent="Sign/Popup" index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -194,7 +159,7 @@ text = "Ok"
 flat = false
 align = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Popup" index="2"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Sign/Popup" index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -222,11 +187,45 @@ scroll_following = true
 selection_enabled = false
 override_selected_font_color = false
 
-[node name="Clouds" type="Node2D" parent="." index="7"]
+[node name="Sprite" type="Sprite" parent="Sign" index="1"]
+
+position = Vector2( 0, 1.74344 )
+texture = ExtResource( 7 )
+normal_map = ExtResource( 7 )
+
+[node name="Area2D" type="Area2D" parent="Sign" index="2" groups=[
+"ui",
+]]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/Area2D" index="0"]
+
+position = Vector2( -13.4485, -1.9502 )
+scale = Vector2( 1.36335, 1 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Sign" index="3"]
+
+position = Vector2( -4.56921, -24.6967 )
+scale = Vector2( 1.53518, 1.48999 )
+frames = SubResource( 3 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="Clouds" type="Node2D" parent="." index="6"]
 
 position = Vector2( 429.011, 69.7557 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="8"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="7"]
 
 editor/display_folded = true
 layer = -1
