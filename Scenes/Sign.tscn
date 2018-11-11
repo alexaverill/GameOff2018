@@ -1,0 +1,156 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Scenes/Sign.gd" type="Script" id=1]
+[ext_resource path="res://UIStyles/UITHeme.tres" type="Theme" id=2]
+[ext_resource path="res://ArtAssets/Sign.png" type="Texture" id=3]
+[ext_resource path="res://ArtAssets/NotificationArrow.png" type="Texture" id=4]
+[ext_resource path="res://ArtAssets/UINotification/frame1.png" type="Texture" id=5]
+[ext_resource path="res://ArtAssets/UINotification/frame2.png" type="Texture" id=6]
+[ext_resource path="res://ArtAssets/UINotification/frame3.png" type="Texture" id=7]
+[ext_resource path="res://ArtAssets/UINotification/frame4.png" type="Texture" id=8]
+[ext_resource path="res://ArtAssets/UINotification/frame5.png" type="Texture" id=9]
+[ext_resource path="res://ArtAssets/UINotification/frame6.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 72.2429, 89.1779 )
+
+[sub_resource type="SpriteFrames" id=2]
+
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 6.0
+} ]
+
+[node name="Sign" type="Node2D"]
+
+position = Vector2( 435.502, 509.31 )
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Popup" type="Popup" parent="." index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -236.0
+margin_top = -327.0
+margin_right = 208.0
+margin_bottom = -90.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+theme = ExtResource( 2 )
+popup_exclusive = false
+_sections_unfolded = [ "Rect", "Theme" ]
+
+[node name="Panel" type="Panel" parent="Popup" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 444.0
+margin_bottom = 235.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
+
+[node name="Button" type="Button" parent="Popup" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 170.0
+margin_top = 208.0
+margin_right = 297.0
+margin_bottom = 228.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+text = "Ok"
+flat = false
+align = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Popup" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 23.0
+margin_top = 16.0
+margin_right = 426.0
+margin_bottom = 201.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in elit aliquet, molestie leo et, pretium dui. Nulla nec massa placerat, aliquam ante porttitor, rhoncus arcu. Fusc"
+scroll_active = false
+scroll_following = true
+selection_enabled = false
+override_selected_font_color = false
+
+[node name="Sprite" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, 1.74344 )
+texture = ExtResource( 3 )
+normal_map = ExtResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="." index="2"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+_sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+position = Vector2( -13.4485, -1.9502 )
+scale = Vector2( 1.36335, 1 )
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="3"]
+
+position = Vector2( -4.56921, -24.6967 )
+scale = Vector2( 1.53518, 1.48999 )
+frames = SubResource( 2 )
+animation = "default"
+frame = 2
+playing = true
+
+

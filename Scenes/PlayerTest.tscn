@@ -1,45 +1,22 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/GameController.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Sign.gd" type="Script" id=5]
-[ext_resource path="res://UIStyles/UITHeme.tres" type="Theme" id=6]
-[ext_resource path="res://ArtAssets/Sign.png" type="Texture" id=7]
-[ext_resource path="res://ArtAssets/NotificationArrow.png" type="Texture" id=8]
-[ext_resource path="res://ArtAssets/UINotification/frame1.png" type="Texture" id=9]
-[ext_resource path="res://ArtAssets/UINotification/frame2.png" type="Texture" id=10]
-[ext_resource path="res://ArtAssets/UINotification/frame3.png" type="Texture" id=11]
-[ext_resource path="res://ArtAssets/UINotification/frame4.png" type="Texture" id=12]
-[ext_resource path="res://ArtAssets/UINotification/frame5.png" type="Texture" id=13]
-[ext_resource path="res://ArtAssets/UINotification/frame6.png" type="Texture" id=14]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big2.png" type="Texture" id=15]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-small3.png" type="Texture" id=16]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=17]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-huge.png" type="Texture" id=18]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big3.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Sign.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big2.png" type="Texture" id=6]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-small3.png" type="Texture" id=7]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=8]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-huge.png" type="Texture" id=9]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big3.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.68045, 20.127 )
 
-[sub_resource type="RectangleShape2D" id=2]
-
-custom_solver_bias = 0.0
-extents = Vector2( 72.2429, 89.1779 )
-
-[sub_resource type="SpriteFrames" id=3]
-
-animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ],
-"loop": true,
-"name": "default",
-"speed": 6.0
-} ]
-
-[node name="Root" type="Node2D" index="0"]
+[node name="Root" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -90,136 +67,7 @@ position = Vector2( -0.634945, -4.76837e-07 )
 scale = Vector2( 8.66954, 1 )
 shape = SubResource( 1 )
 
-[node name="Sign" type="Node2D" parent="." index="5" groups=[
-"ui",
-]]
-
-position = Vector2( 435.502, 509.31 )
-script = ExtResource( 5 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Popup" type="Popup" parent="Sign" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = -236.0
-margin_top = -327.0
-margin_right = 208.0
-margin_bottom = -90.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-theme = ExtResource( 6 )
-popup_exclusive = false
-_sections_unfolded = [ "Rect", "Theme" ]
-
-[node name="Panel" type="Panel" parent="Sign/Popup" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 444.0
-margin_bottom = 235.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-_sections_unfolded = [ "Anchor", "Focus", "Grow Direction", "Hint", "Margin", "Material", "Mouse", "Rect", "Size Flags", "Theme", "Visibility", "custom_styles" ]
-
-[node name="Button" type="Button" parent="Sign/Popup" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 170.0
-margin_top = 208.0
-margin_right = 297.0
-margin_bottom = 228.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-focus_mode = 2
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-group = null
-text = "Ok"
-flat = false
-align = 1
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Sign/Popup" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 23.0
-margin_top = 16.0
-margin_right = 426.0
-margin_bottom = 201.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = true
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-bbcode_enabled = false
-bbcode_text = ""
-visible_characters = -1
-percent_visible = 1.0
-meta_underlined = true
-tab_size = 4
-text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam in elit aliquet, molestie leo et, pretium dui. Nulla nec massa placerat, aliquam ante porttitor, rhoncus arcu. Fusc"
-scroll_active = false
-scroll_following = true
-selection_enabled = false
-override_selected_font_color = false
-
-[node name="Sprite" type="Sprite" parent="Sign" index="1"]
-
-position = Vector2( 0, 1.74344 )
-texture = ExtResource( 7 )
-normal_map = ExtResource( 7 )
-
-[node name="Area2D" type="Area2D" parent="Sign" index="2" groups=[
-"ui",
-]]
-
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-_sections_unfolded = [ "Collision" ]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sign/Area2D" index="0"]
-
-position = Vector2( -13.4485, -1.9502 )
-scale = Vector2( 1.36335, 1 )
-shape = SubResource( 2 )
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Sign" index="3"]
-
-position = Vector2( -4.56921, -24.6967 )
-scale = Vector2( 1.53518, 1.48999 )
-frames = SubResource( 3 )
-animation = "default"
-frame = 3
-playing = true
+[node name="Sign" parent="." index="5" instance=ExtResource( 5 )]
 
 [node name="Clouds" type="Node2D" parent="." index="6"]
 
@@ -251,17 +99,17 @@ _sections_unfolded = [ "Motion" ]
 [node name="cumulus-big2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
 position = Vector2( -353.864, 97.705 )
-texture = ExtResource( 15 )
+texture = ExtResource( 6 )
 
 [node name="cumulus-small3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
 position = Vector2( -455.891, 78.6598 )
-texture = ExtResource( 16 )
+texture = ExtResource( 7 )
 
 [node name="cumulus-big1" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
 
 position = Vector2( -408.278, 137.156 )
-texture = ExtResource( 17 )
+texture = ExtResource( 8 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
@@ -272,12 +120,12 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 
 position = Vector2( 860.109, 83.3217 )
-texture = ExtResource( 15 )
+texture = ExtResource( 6 )
 
 [node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
 
 position = Vector2( 976.173, 90.8583 )
-texture = ExtResource( 17 )
+texture = ExtResource( 8 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
@@ -288,12 +136,12 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="cumulus-huge2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
 
 position = Vector2( 1941.48, 198.923 )
-texture = ExtResource( 18 )
+texture = ExtResource( 9 )
 
 [node name="cumulus-big4" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="1"]
 
 position = Vector2( 1798.52, 114.828 )
-texture = ExtResource( 17 )
+texture = ExtResource( 8 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 
@@ -305,12 +153,12 @@ _sections_unfolded = [ "Motion" ]
 [node name="cumulus-huge" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
 
 position = Vector2( 12.0754, 161.642 )
-texture = ExtResource( 18 )
+texture = ExtResource( 9 )
 
 [node name="cumulus-big3" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="1"]
 
 position = Vector2( -1050.8, 208.741 )
-texture = ExtResource( 17 )
+texture = ExtResource( 8 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
@@ -322,16 +170,16 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="Cloud4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="0"]
 
 position = Vector2( 429.011, 69.7557 )
-texture = ExtResource( 15 )
+texture = ExtResource( 6 )
 
 [node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="1"]
 
 position = Vector2( 395.85, 101.41 )
-texture = ExtResource( 19 )
+texture = ExtResource( 10 )
 
 [node name="Cloud5" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="2"]
 
 position = Vector2( 35.5972, 20.0137 )
-texture = ExtResource( 16 )
+texture = ExtResource( 7 )
 
 
