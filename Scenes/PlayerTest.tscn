@@ -94,7 +94,7 @@ shape = SubResource( 1 )
 "ui",
 ]]
 
-position = Vector2( -92.7596, 710.485 )
+position = Vector2( -92.2719, 710.485 )
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Sign" index="0"]
@@ -128,7 +128,7 @@ position = Vector2( -4.56921, -24.6967 )
 scale = Vector2( 1.53518, 1.48999 )
 frames = SubResource( 3 )
 animation = "default"
-frame = 2
+frame = 4
 playing = true
 
 [node name="Popup" type="Popup" parent="." index="6"]
