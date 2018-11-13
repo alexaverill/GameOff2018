@@ -1,18 +1,26 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/GameController.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Ground.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/Sign.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big2.png" type="Texture" id=6]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-small3.png" type="Texture" id=7]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=8]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-huge.png" type="Texture" id=9]
-[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big3.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/GroundPlatform.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Door.gd" type="Script" id=3]
+[ext_resource path="res://ArtAssets/Door.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ArtAssets/TempAssets/RedSprite.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/Sign.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big2.png" type="Texture" id=9]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-small3.png" type="Texture" id=10]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big1.png" type="Texture" id=11]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-huge.png" type="Texture" id=12]
+[ext_resource path="res://ArtAssets/Backgrounds/cumulus-big3.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/GroundPlatform.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 86.913, 110.605 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.68045, 20.127 )
@@ -34,25 +42,63 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Ground3" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 1800.26, 472 )
+position = Vector2( 1920.8, 462.727 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 3 )]
+[node name="Ground4" parent="." index="3" instance=ExtResource( 2 )]
 
-position = Vector2( 24.9463, 419.999 )
+position = Vector2( 4364.14, 563.885 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Door" type="Node2D" parent="." index="4" groups=[
+"door",
+]]
+
+editor/display_folded = true
+position = Vector2( 5046.15, 413.1 )
+script = ExtResource( 3 )
+scene = "res://Scenes/TitleScene.tscn"
+
+[node name="Sprite" type="Sprite" parent="Door" index="0"]
+
+texture = ExtResource( 4 )
+
+[node name="Area2D" type="Area2D" parent="Door" index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Door/Area2D" index="0"]
+
+position = Vector2( 1.32684, 18.5756 )
+shape = SubResource( 1 )
+
+[node name="Door2" parent="." index="5" instance=ExtResource( 5 )]
+
+position = Vector2( 304.291, 333.02 )
+scene = "res://Scenes/PlayerTest.tscn"
+
+[node name="KinematicBody2D" parent="." index="6" instance=ExtResource( 6 )]
+
+position = Vector2( -943.007, 408.841 )
 _sections_unfolded = [ "Collision", "Transform", "collision" ]
 run_speed = 300
 jump_speed = -300
 gravity = 400
 
-[node name="Enemy" type="Node2D" parent="." index="4"]
+[node name="Enemy" type="Node2D" parent="." index="7"]
 
 editor/display_folded = true
 position = Vector2( 927.181, 428.417 )
 
 [node name="Sprite" type="Sprite" parent="Enemy" index="0"]
 
-texture = ExtResource( 4 )
+texture = ExtResource( 7 )
 
 [node name="Area2D" type="Area2D" parent="Enemy" index="1"]
 
@@ -68,17 +114,17 @@ audio_bus_name = "Master"
 
 position = Vector2( -0.634945, -4.76837e-07 )
 scale = Vector2( 8.66954, 1 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
-[node name="Sign" parent="." index="5" instance=ExtResource( 5 )]
+[node name="Sign" parent="." index="8" instance=ExtResource( 8 )]
 
-position = Vector2( 431.404, 417.439 )
+position = Vector2( -589.55, 411.86 )
 
-[node name="Clouds" type="Node2D" parent="." index="6"]
+[node name="Clouds" type="Node2D" parent="." index="9"]
 
 position = Vector2( 429.011, 69.7557 )
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="7"]
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." index="10"]
 
 editor/display_folded = true
 layer = -1
@@ -104,17 +150,17 @@ _sections_unfolded = [ "Motion" ]
 [node name="cumulus-big2" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="0"]
 
 position = Vector2( -353.864, 97.705 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="cumulus-small3" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="1"]
 
 position = Vector2( -455.891, 78.6598 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
 [node name="cumulus-big1" type="Sprite" parent="ParallaxBackground/ParallaxLayer" index="2"]
 
 position = Vector2( -408.278, 137.156 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" index="1"]
 
@@ -125,12 +171,12 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="Cloud2" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="0"]
 
 position = Vector2( 860.109, 83.3217 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Cloud1" type="Sprite" parent="ParallaxBackground/ParallaxLayer2" index="1"]
 
 position = Vector2( 976.173, 90.8583 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground" index="2"]
 
@@ -141,12 +187,12 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="cumulus-huge2" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="0"]
 
 position = Vector2( 1941.48, 198.923 )
-texture = ExtResource( 9 )
+texture = ExtResource( 12 )
 
 [node name="cumulus-big4" type="Sprite" parent="ParallaxBackground/ParallaxLayer3" index="1"]
 
 position = Vector2( 1798.52, 114.828 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground" index="3"]
 
@@ -158,12 +204,12 @@ _sections_unfolded = [ "Motion" ]
 [node name="cumulus-huge" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="0"]
 
 position = Vector2( 12.0754, 161.642 )
-texture = ExtResource( 9 )
+texture = ExtResource( 12 )
 
 [node name="cumulus-big3" type="Sprite" parent="ParallaxBackground/ParallaxLayer4" index="1"]
 
 position = Vector2( -1050.8, 208.741 )
-texture = ExtResource( 8 )
+texture = ExtResource( 11 )
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="ParallaxBackground" index="4"]
 
@@ -175,20 +221,32 @@ motion_mirroring = Vector2( 0, 0 )
 [node name="Cloud4" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="0"]
 
 position = Vector2( 429.011, 69.7557 )
-texture = ExtResource( 6 )
+texture = ExtResource( 9 )
 
 [node name="Cloud3" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="1"]
 
 position = Vector2( 395.85, 101.41 )
-texture = ExtResource( 10 )
+texture = ExtResource( 13 )
 
 [node name="Cloud5" type="Sprite" parent="ParallaxBackground/ParallaxLayer5" index="2"]
 
 position = Vector2( 35.5972, 20.0137 )
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
-[node name="Node2D" parent="." index="8" instance=ExtResource( 11 )]
+[node name="Node2D" parent="." index="11" instance=ExtResource( 14 )]
 
-position = Vector2( 1288.97, -95.6655 )
+position = Vector2( 1341.51, -92.5747 )
+
+[node name="Node2D2" parent="." index="12" instance=ExtResource( 14 )]
+
+position = Vector2( 3212.76, -108.355 )
+
+[node name="Node2D3" parent="." index="13" instance=ExtResource( 14 )]
+
+position = Vector2( 3905.29, -100.573 )
+
+[node name="Node2D4" parent="." index="14" instance=ExtResource( 14 )]
+
+position = Vector2( 3510.93, -191.074 )
 
 
